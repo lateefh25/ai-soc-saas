@@ -5,7 +5,7 @@ from ai_engine.ai_risk_model import model
 app = FastAPI()
 
 class AlertRequest(BaseModel):
-    alert: str
+    alert: str  # This will be the JSON body field
 
 @app.get("/")
 def root():
@@ -14,3 +14,4 @@ def root():
 @app.post("/analyze")
 def analyze(request: AlertRequest):
     return model.analyze_alert(request.alert)
+
